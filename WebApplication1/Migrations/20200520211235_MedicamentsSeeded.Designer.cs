@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Models;
 
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200520211235_MedicamentsSeeded")]
+    partial class MedicamentsSeeded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,29 +47,6 @@ namespace WebApplication1.Migrations
                         .HasName("Doctor_Key");
 
                     b.ToTable("Doctor");
-
-                    b.HasData(
-                        new
-                        {
-                            IdDoctor = 1,
-                            Email = "andrzej@wp.pl",
-                            FirstName = "Andrzej",
-                            LastName = "Jezrdna"
-                        },
-                        new
-                        {
-                            IdDoctor = 2,
-                            Email = "dilip@wp.pl",
-                            FirstName = "Filip",
-                            LastName = "Pilif"
-                        },
-                        new
-                        {
-                            IdDoctor = 3,
-                            Email = "kasia@wp.pl",
-                            FirstName = "Katarzyna",
-                            LastName = "Anyzratak"
-                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Medicament", b =>
@@ -145,29 +124,6 @@ namespace WebApplication1.Migrations
                         .HasName("Patient_key");
 
                     b.ToTable("Patient");
-
-                    b.HasData(
-                        new
-                        {
-                            IdPatient = 1,
-                            BirthDate = new DateTime(1995, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Konrad",
-                            LastName = "Darnok"
-                        },
-                        new
-                        {
-                            IdPatient = 2,
-                            BirthDate = new DateTime(1982, 2, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Malgorzata",
-                            LastName = "Atazroglam"
-                        },
-                        new
-                        {
-                            IdPatient = 3,
-                            BirthDate = new DateTime(1963, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            FirstName = "Dawid",
-                            LastName = "Diwad"
-                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Prescription", b =>
@@ -197,40 +153,6 @@ namespace WebApplication1.Migrations
                     b.HasIndex("IdPatient");
 
                     b.ToTable("Prescription");
-
-                    b.HasData(
-                        new
-                        {
-                            IdPrescription = 1,
-                            Date = new DateTime(2020, 2, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DueDate = new DateTime(2020, 8, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IdDoctor = 2,
-                            IdPatient = 2
-                        },
-                        new
-                        {
-                            IdPrescription = 2,
-                            Date = new DateTime(2020, 1, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DueDate = new DateTime(2020, 6, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IdDoctor = 1,
-                            IdPatient = 1
-                        },
-                        new
-                        {
-                            IdPrescription = 3,
-                            Date = new DateTime(2020, 3, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DueDate = new DateTime(2020, 9, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IdDoctor = 3,
-                            IdPatient = 3
-                        },
-                        new
-                        {
-                            IdPrescription = 4,
-                            Date = new DateTime(2019, 12, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            DueDate = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            IdDoctor = 2,
-                            IdPatient = 1
-                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.PrescriptionMedicament", b =>
@@ -255,29 +177,6 @@ namespace WebApplication1.Migrations
                     b.HasIndex("IdMedicament");
 
                     b.ToTable("Prescription_Medicament");
-
-                    b.HasData(
-                        new
-                        {
-                            IdPrescription = 2,
-                            Details = "aaaa",
-                            Dose = 2,
-                            IdMedicament = 1
-                        },
-                        new
-                        {
-                            IdPrescription = 1,
-                            Details = "bbbb",
-                            Dose = 3,
-                            IdMedicament = 2
-                        },
-                        new
-                        {
-                            IdPrescription = 3,
-                            Details = "cccc",
-                            Dose = 1,
-                            IdMedicament = 3
-                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Prescription", b =>

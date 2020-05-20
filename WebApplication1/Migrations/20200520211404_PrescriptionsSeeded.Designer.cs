@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebApplication1.Models;
 
 namespace WebApplication1.Migrations
 {
     [DbContext(typeof(MyDbContext))]
-    partial class MyDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200520211404_PrescriptionsSeeded")]
+    partial class PrescriptionsSeeded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -255,29 +257,6 @@ namespace WebApplication1.Migrations
                     b.HasIndex("IdMedicament");
 
                     b.ToTable("Prescription_Medicament");
-
-                    b.HasData(
-                        new
-                        {
-                            IdPrescription = 2,
-                            Details = "aaaa",
-                            Dose = 2,
-                            IdMedicament = 1
-                        },
-                        new
-                        {
-                            IdPrescription = 1,
-                            Details = "bbbb",
-                            Dose = 3,
-                            IdMedicament = 2
-                        },
-                        new
-                        {
-                            IdPrescription = 3,
-                            Details = "cccc",
-                            Dose = 1,
-                            IdMedicament = 3
-                        });
                 });
 
             modelBuilder.Entity("WebApplication1.Models.Prescription", b =>

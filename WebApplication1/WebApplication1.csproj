@@ -7,6 +7,8 @@
   <ItemGroup>
     <Compile Remove="Migrations\20200518084144_PatientAddedPrescriptionMedicamentsAdded.cs" />
     <Compile Remove="Migrations\20200518084144_PatientAddedPrescriptionMedicamentsAdded.Designer.cs" />
+    <Compile Remove="Migrations\20200520211140_Seeded.cs" />
+    <Compile Remove="Migrations\20200520211140_Seeded.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
