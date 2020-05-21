@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using WebApplication1.Models;
+using WebApplication1.Services;
 
 namespace WebApplication1
 {
@@ -31,6 +32,7 @@ namespace WebApplication1
             {
                 options.UseSqlServer(Configuration.GetConnectionString("Connect"));
             });
+            services.AddScoped<IDbService, DbService>();
             services.AddControllers();
         }
 
